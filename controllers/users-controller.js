@@ -12,6 +12,7 @@ const usersController = {
     // get all users
     getAllUsers(req, res) {
         Users.find({})
+
         .populate({
             path: 'thoughts',
             select: '-__v'
@@ -34,6 +35,7 @@ const usersController = {
     // get single user by id
     getUsersById({params}, res) {
         Users.findOne({_id: params.id })
+        
         .populate({
             path: 'thoughts',
             select: '-__v'
