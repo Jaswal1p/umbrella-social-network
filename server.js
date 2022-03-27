@@ -1,5 +1,4 @@
 const express = require('express');
-const { appendFile } = require('fs');
 const mongoose = require('mongoose');
 
 const app =express()
@@ -13,7 +12,7 @@ app.use(require('./routes'));
 
 // Connect mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/umbrella-social-network', {
-
+    //useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
