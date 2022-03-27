@@ -6,6 +6,8 @@ const thoughtsController = {
 
     // method to create a new thought
     addThoughts({params, body}, res) {
+        console.log('creating thought!')
+        console.log({ _id: params.userId})
         Thoughts.create(body)
             .then(({_id}) => {
                 return Users.findOneAndUpdate({ _id: params.userId}, {$push: {thoughts: _id}}, {new: true});
