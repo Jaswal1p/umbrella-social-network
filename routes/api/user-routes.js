@@ -7,7 +7,7 @@ const {
     getUsersById,
     updateUsers,
     deleteUsers
-} = require('../controllers/users-controller');
+} = require('../../controllers/users-controller');
 
 // Set up GET and POST at /api/users
 router

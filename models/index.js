@@ -1,3 +1,3 @@
 const Users = require('./Users');
 
-module.exports = { Pizza };
+module.exports = { Users };
