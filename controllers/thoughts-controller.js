@@ -5,18 +5,14 @@ const { Thoughts, Users } = require('../models');
 const thoughtsController = {
 
     // method to create a new thought
-    createThoughts({params, body}, res) {
+    addThoughts({params, body}, res) {
         Thoughts.create(body)
             .then(({_id}) => {
-                return Users.findOneAndUpdate(
-                    { _id: params.userId}, 
-                    {$push: {thoughts: _id}}, 
-                    {new: true}
-                );
+                return Users.findOneAndUpdate({ _id: params.userId}, {$push: {thoughts: _id}}, {new: true});
             })
             .then(dbThoughtsData => {
                 if(!dbThoughtsData) {
-                    res.status(404).json({message: 'No thoughts with users id!'});
+                    res.status(404).json({message: 'No thoughts with this particular ID!'});
                     return;
                 }
                 res.json(dbThoughtsData)

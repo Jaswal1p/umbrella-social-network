@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 // Set requirements - from thoughts-controller
 const {
-    createThoughts,
+    addThoughts,
     getAllThoughts,
     getThoughtById,
     updateThoughts,
@@ -11,7 +11,7 @@ const {
     addReaction,
     deleteReaction
 
- }= require('../../controllers/thoughts-controller');
+ } = require('../../controllers/thoughts-controller');
 
 // /api/thoughts
 router
@@ -28,7 +28,7 @@ router
 // route to create thought
 router
     .route('/userId')
-    .post(createThoughts);
+    .post(addThoughts);
 
 // route to create reaction to a thought /api/thoughts/:thoughtId/reactions by POST method
 router
