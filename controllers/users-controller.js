@@ -77,37 +77,65 @@ const usersController = {
         });
     },
 
-    // delete a user by its id
-    deleteUsers({params, body}, res) {
-        Users.findOneAndDelete({_id: params.id})
-         
-        .then(dbUsersData => {
-            if(!dbUsersData) {
-                res.status(404).json({message: 'No User with this id!'});
+
+    // DELETE /api/users/:id
+    deleteUsers({ params }, res) {
+        // delete the user
+        Users.findOneAndDelete({ _id: params.id })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No user found with this id'});
                 return;
             }
             // this is to remove the user from any friends arrays
             Users.updateMany(
-                { _id : {$in: dbUsersData.friends } },
+                { _id : {$in: dbUserData.friends } },
                 { $pull: { friends: params.id } }
             )
             .then(() => {
-            // this is to remove any thoughts by this particular user
-                Thoughts.deleteMany({ username : dbUsersData.username })
+                // this is to remove any thoughts by this particular user
+                Thoughts.deleteMany({ username : dbUserData.username })
                 .then(() => {
-                    res.json({message: "Successfully deleted user & his/her thoughts"})
+                    res.json({message: "Successfully deleted user, his/her thoughts & dropped from friends"});
                 })
-                
                 .catch(err => res.status(400).json(err));
             })
             .catch(err => res.status(400).json(err));
-            res.json(dbUsersData) 
         })
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
+        .catch(err => res.status(400).json(err));
     },
+
+
+    // delete a user by its id
+    // deleteUsers({params, body}, res) {
+    //     Users.findOneAndDelete({_id: params.id})
+         
+    //     .then(dbUsersData => {
+    //         if(!dbUsersData) {
+    //             res.status(404).json({message: 'No User with this id!'});
+    //             return;
+    //         }
+    //         // this is to remove the user from any friends arrays
+    //         Users.updateMany(
+    //             { _id : {$in: dbUsersData.friends } },
+    //             { $pull: { friends: params.id } }
+    //         )
+    //         .then(() => {
+    //         // this is to remove any thoughts by this particular user
+    //             Thoughts.deleteMany({ username : dbUsersData.username })
+    //             .then(() => {
+    //                 res.json({message: "Successfully deleted user & his/her thoughts"})
+    //             })
+    //             .catch(err => res.status(400).json(err));
+    //         })
+    //         .catch(err => res.status(400).json(err));
+    //         res.json(dbUsersData) 
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //         res.status(400).json(err);
+    //     });
+    // },
 
     // add a friend
     addFriend({params}, res) {
