@@ -27,7 +27,7 @@ router
 
 // route to create thought
 router
-    .route('/userId')
+    .route('/:userId')
     .post(addThoughts);
 
 // route to create reaction to a thought /api/thoughts/:thoughtId/reactions by POST method
