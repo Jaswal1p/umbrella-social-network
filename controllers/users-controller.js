@@ -1,4 +1,4 @@
-const { Users } = require('../models');
+const { Users, Thoughts } = require('../models');
 
 // setup of users controller
 const usersController = {
@@ -86,6 +86,20 @@ const usersController = {
                 res.status(404).json({message: 'No User with this id!'});
                 return;
             }
+            // this is to remove the user from any friends arrays
+            Users.updateMany(
+                { _id : {$in: dbUsersData.friends } },
+                { $pull: { friends: params.id } }
+            )
+            .then(() => {
+            // this is to remove any thoughts by this particular user
+                Thoughts.deleteMany({ username : dbUsersData.username })
+                .then(() => {
+                    res.json({message: "Successfully deleted user & his/her thoughts"})
+                })
+                .catch(err => res.status(400).json(err));
+            })
+            .catch(err => res.status(400).json(err));
             res.json(dbUsersData) 
         })
         .catch(err => {
