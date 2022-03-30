@@ -97,6 +97,7 @@ const usersController = {
                 .then(() => {
                     res.json({message: "Successfully deleted user & his/her thoughts"})
                 })
+                
                 .catch(err => res.status(400).json(err));
             })
             .catch(err => res.status(400).json(err));
