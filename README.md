@@ -44,7 +44,7 @@
 
 Insomnia Screenshots of all methods are in assets folder
 
-Two screenshots of Bonus are below + 3rd of the Mongodb refrence to updateMany method. This is also demonstrated in video #3.
+Two screenshots of Bonus are below + 3rd of the Mongodb refrence to updateMany method. This is also demonstrated in Third video (Above).
 
 ![DeleteUser thoughts fromFriendlist](https://user-images.githubusercontent.com/92233527/161086831-4e8638d0-8110-476f-b765-ad94c84e1f51.png)
 
@@ -73,7 +73,7 @@ Screen shots of Insominia test & MongoDb refrence are below.
   7. NoSQL. 
   8. Mongoose ODM packages.
   9. MongoDb database.
-  10. express-session.
+  10. Mongosh.
   
 
 # Usage
