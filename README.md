@@ -19,8 +19,8 @@
  * [Usage](#usage)
  * [GitHub Repository Link](#github-repository-link)
  * [Video Links](#video-links)
- * [Screenshots](#screenshots)
  * [Bonus feature](#Bonus-feature)
+ * [Screenshots](#screenshots)
  * [License](#license)
  * [Contributing](#Contributing)
  * [Tests](#tests)
@@ -40,6 +40,12 @@
  * Third video: https://drive.google.com/file/d/1f7ZDucdZYaHxR8dcrAEyBHDEz8Hz_L0t/view
 
 
+# Bonus Feature
+
+This was another head-scratcher to attempt. Had to look up Mongoose methods and found the beauty of 'updateMany' method. Read documentation to understand it but had to learn on stack overflow about how to properly use it. I finally got it.
+
+Screen shots of Insominia test & MongoDb refrence are below.
+
 # Screenshots
 
 Insomnia Screenshots of all methods are in assets folder
@@ -52,13 +58,6 @@ Two screenshots of Bonus are below + 3rd of the Mongodb refrence to updateMany m
 ![TghtsDisappearAftDeltUser](https://user-images.githubusercontent.com/92233527/161087006-83c4937f-ec05-4f45-a87b-820b5bee3012.png)
 
 ![updateMany](https://user-images.githubusercontent.com/92233527/161087643-bea72b07-25a8-4382-8552-adc62267eb17.png)
-
-
-# Bonus Feature
-
-This was another head-scratcher to attempt. Had to look up Mongoose methods and found the beauty of 'updateMany' method. Read documentation to understand it but had to learn on stack overflow about how to properly use it. I finally got it.
-
-Screen shots of Insominia test & MongoDb refrence are below.
 
 
 # Installation
